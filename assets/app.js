@@ -5,8 +5,14 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+// any CSS you import will output into a single css file (app.scss in this case)
+// const $ = require('jquery');
+// require('bootstrap');
+import './styles/app.scss';
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+// $(document).ready(function () {
+//     $('[data-toggle="popover"]').popover();
+// });

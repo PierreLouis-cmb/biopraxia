@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LieuTpController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('app_lieu_tp_new')}}" class="btn btn-primary">Créer</a>
+
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Adresse de départ</th>
+                <th scope="col">Adresse de d'arrivé</th>
+                <th scope="col">Kilemetrage</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        {% for lieuTp in lieuTps %}
+
+                <tbody>
+                <tr>
+                    <td>{{ lieuTp.name }}</td>
+                    <td>{{ lieuTp.AdresseDepart }}</td>
+                    <td>{{ lieuTp.AdresseArriver }}</td>
+                    <td>{{ lieuTp.kilometrage }}</td>
+                    <td>
+                        <a href="{{ path('lieuTp_edit', { 'id': lieuTp.id }) }}">Modifier</a>
+                        <a href="{{ path('lieuTp_delete', { 'id': lieuTp.id }) }}">Supprimer</a>
+                    </td>
+                </tr>
+                </tbody>
+        {% endfor %}
+    </table>
+
+{% endblock %}

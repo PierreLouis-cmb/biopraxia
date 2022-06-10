@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TrajetController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('trajet_new')}}" class="btn btn-primary">Créer</a>
+<table class="table">
+  <thead>
+   <tr>
+    <th scope="col">Numéro</th>
+    <th scope="col">Date</th>
+    <th scope="col">Conducteur</th>
+    <th scope="col">Lieu</th>
+    <th scope="col"></th>
+   </tr>
+  </thead>
+    {% for trajet in trajets %}
+      <tbody>
+       <tr>
+         <td>{{ trajet.id  }}</td>
+         <td>{{ trajet.date | date }}</td>
+         <td>{{ trajet.user.username }}</td>
+{#         <td>{{  trajet.lieuTp.name}}</td>#}
+       <td><a href="{{ path('lieuTp_show', { 'id': trajet.lieuTp.id  | default('null')}) }}"> {{  trajet.lieuTp.name| default('Non renseingé')}} </a></td>
+{#           {% if trajet.lieuTp.name is same as(null) %}#}
+{#               <td>Non renseigné</td>#}
+{#               {% else %}#}
+{#                   <td><a>{{ path('lieuTp_show', { 'id': trajet.lieuTp.id }) }} {{  trajet.lieuTp.name}}</a></td>#}
+{#           {% endif %}#}
+{#         <td>{{ dump(trajet)}}</td>#}
+         <td>
+          <a href="{{ path('trajet_edit', { 'id': trajet.id }) }}">Modifier</a>
+          <a href="{{ path('trajet_delete', { 'id': trajet.id }) }}">Supprimer</a>
+        </td>
+       </tr>
+      </tbody>
+
+    {% endfor %}
+</table>
+{% endblock %}

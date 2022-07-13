@@ -20,7 +20,6 @@ class DashboardController extends AbstractController
 
         $repository = $doctrine->getRepository(User::class);
         $users = $repository->findAll();
-//dump($ur->nombreKilometreAll());
         return $this->render('dashboard/index.html.twig', [
            'users' => $users,
             'ur' => $ur,

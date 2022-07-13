@@ -128,7 +128,7 @@ class TrajetController extends AbstractController
         $lieuTp = $trajet->getLieuTp();
         $trajet->setKilometrage($lieuTp->getKilometrage());
         $user->setSupprTotalKilometre($trajet->getKilometrage());
-
+//TODO: Attention, si un lieuTP n'existe plus dans la base données cela va provoquer une erreur lié a MySqlLite Contrainte NULL voir trajet.php relation lieuTp
         $this->entityManager->remove($trajet);
         $this->entityManager->flush();
         $this->addFlash('success', 'Trajet supprimé avec succès');

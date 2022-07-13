@@ -111,6 +111,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //        // returns an array of Product objects
 //        return $query->getResult();
     }
+
+    //TODO : function a finir, elle devra remplacer le totalkilometerAll dans dashboard/index.html.twig pour eviter les erreurs de calcule du nombre de kil
     public function nombreKilometreAll(){
         $entityManager = $this->getEntityManager();
 
@@ -121,5 +123,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         // returns an array of Product objects
         return $query->getResult();
 
+    }
+// req sql pour le nombre de killometre fait pour chaque user (nouvelle version permet de minimiser les erreur de clacule
+    public function nombreKilometreAllParUser(){
+//        SELECT lieu_tp.kilometrage, user.first_name from lieu_tp
+//left join trajet on trajet.lieu_tp_id = lieu_tp.id
+//left join user on user.id = trajet.user_id
+//where user.id = 2
     }
 }

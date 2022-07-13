@@ -27,6 +27,7 @@
                     <td>{{ lieuTp.kilometrage }}</td>
                     <td>
                         <a href="{{ path('lieuTp_edit', { 'id': lieuTp.id }) }}">Modifier</a>
+{#                        TODO: Masquer le champ supprimer pour les utilisateur classique, mais l'afficher pour le profil admin #}
                         <a href="{{ path('lieuTp_delete', { 'id': lieuTp.id }) }}">Supprimer</a>
                     </td>
                 </tr>
